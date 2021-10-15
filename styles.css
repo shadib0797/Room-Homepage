@@ -1,0 +1,373 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+html,body{
+    min-height: 100vh;
+    height: auto;
+}
+
+body {
+    font: 12px 'Spartan', sans-serif;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+a {
+    text-decoration: none;
+}
+
+.toggle,
+.toggle>img {
+    display: none;
+}
+
+.nav-bar {
+    display: flex;
+    position: absolute;
+    z-index: 1;
+    justify-content: space-between;
+    align-items: flex-start;
+    left: 4rem;
+    top: 4rem;
+    width: 350px;
+}
+
+.nav-bar nav {
+    display: flex;
+    justify-content: space-between;
+    width: 65%;
+}
+
+.nav-bar nav a {
+    color: white;
+    text-transform: lowercase;
+    position: relative;
+    font-weight: 600;
+}
+
+.nav-bar nav a::before {
+    content: "";
+    position: absolute;
+    border-bottom: 2.5px solid white;
+    width: 100%;
+    bottom: -8px;
+    transform: scaleX(0);
+    transition: transform 0.3s ease-in-out;
+}
+
+.nav-bar nav a:hover::before {
+    transform: scaleX(0.5);
+}
+
+.top,
+.bottom {
+    display: flex;
+}
+
+.slides {
+    overflow: hidden;
+}
+
+.slide {
+    display: flex;
+    min-width: 100%;
+    transition: transform 800ms ease-out;
+}
+
+.slide>.image {
+    width: 58.34%;
+}
+
+.slide>.image>img,
+.bottom>.img-bottom>img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.bottom .first {
+    min-width: 29.168%;
+}
+
+.bottom .last {
+    min-width: 30%;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    padding: 5.5rem;
+    width: 41.66%;
+}
+
+.content>div:last-child {
+    display: flex;
+    background-color: black;
+    width: 28%;
+    height: 15%;
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+}
+
+.prev {
+    background-image: url("./images/icon-angle-left.svg");
+}
+
+.next {
+    background-image: url("./images/icon-angle-right.svg");
+}
+
+.prev,
+.next {
+    width: 50%;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.prev:hover,
+.next:hover {
+    background-color: hsl(0, 0%, 27%);
+    cursor: pointer;
+}
+
+.content h1 {
+    font-size: 2.4rem;
+    margin-bottom: 1.8rem;
+}
+
+.content p,
+.content-bottom p {
+    color: hsl(0, 0%, 63%);
+    margin-bottom: 1.8rem;
+    line-height: 1.6;
+}
+
+.content .cta {
+    color: black;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 11px;
+    display: flex;
+    width: fit-content;
+}
+
+.content .cta svg {
+    margin-left: 2.5rem;
+}
+
+.content .cta:hover,
+.content .cta:hover svg path {
+    color: hsl(0, 0%, 63%);
+    fill: hsl(0, 0%, 63%);
+    transition: color 0.2s ease-in-out, fill 0.2s ease-in-out;
+}
+
+.content-bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 3rem;
+}
+
+.content-bottom h4 {
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    letter-spacing: 5.7px;
+}
+
+@media screen and (max-width:1400px) {
+
+    .nav-bar {
+        left: 3rem
+    }
+
+    .content {
+        padding: 4rem;
+    }
+
+    .content h1 {
+        font-size: 2rem;
+    }
+
+    .content>div:last-child {
+        height: 10%;
+    }
+}
+
+
+@media screen and (max-width:1024px) {
+
+    .nav-bar {
+        left: 2.5rem
+    }
+
+
+    .slide>.image {
+        width: 55%;
+    }
+
+    .content {
+        padding: 5%;
+        width: 45%;
+    }
+
+    .slide>.image,
+    .content {
+        height: 33rem;
+    }
+
+    .content>div:last-child {
+        width: 33%;
+    }
+
+    .content-bottom {
+        padding: 2rem;
+    }
+
+    .content-bottom h4 {
+        letter-spacing: 4px;
+    }
+
+    .content-bottom p {
+        margin: 0;
+    }
+
+    .bottom {
+        height: 21rem;
+    }
+}
+
+
+@media screen and (max-width:768px) {
+
+
+    .nav-bar {
+        top: 2.5rem
+    }
+
+    .bottom {
+        flex-direction: column;
+        height: fit-content;
+    }
+
+    .slide {
+        flex-direction: column;
+        min-width: 100%;
+    }
+
+    .slide>.image,
+    .content {
+        width: 100%;
+    }
+
+    .content,
+    .content-bottom {
+        padding: 10%;
+    }
+
+    .content-bottom h4 {
+        margin-top: 1.8rem;
+        margin-bottom: 2rem;
+        font-size: 1rem;
+    }
+
+    .content>div:last-child {
+        min-width: 124px;
+        min-height: 60px;
+        z-index: 1;
+        width: 25%;
+        height: 16%;
+        bottom: 100%;
+        left: 75%;
+    }
+
+    .slide>.image,
+    .content {
+        height: auto;
+    }
+}
+
+
+@media screen and (max-width:500px) {
+    .hide {
+        justify-content: unset;
+        width: calc(100% - 5rem);
+    }
+
+    .hide nav {
+        display: none;
+    }
+
+    .hide .logo{
+        margin-left: calc(50% - 20px);
+    }
+
+    .hide .toggle,
+    .hide .toggle>img:first-child {
+        display: block;
+    }
+
+    .toggle>img:hover{
+        cursor: pointer;
+    }
+
+
+
+    .show {
+        position: static;
+        padding: 2.5rem;
+        width: 100%;
+    }
+
+    .show nav a {
+        color: black;
+    }
+
+    .show nav a::before {
+        border-bottom: 2.5px solid black;
+    }
+
+    .show .logo {
+        display: none;
+    }
+
+    .show .toggle,
+    .show .toggle>img:last-child {
+        display: block;
+    }
+
+
+    .content>div:last-child {
+        min-width: 100px;
+        min-height: 50px;
+        width: 100px;
+        height: 50px;
+        bottom: 100%;
+        left: 80%;
+    }
+
+    .content h1 {
+        font-size: 1.5rem;
+    }
+
+    .content .cta {
+        letter-spacing: 4px;
+    }
+    
+    .content .cta svg {
+        margin-left: 2rem;
+    }
+
+}
